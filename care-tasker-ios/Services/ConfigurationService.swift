@@ -12,9 +12,7 @@ class ConfigurationService {
 
     func loadTabs() async throws -> [TabConfiguration] {
 
-        let url = URL(
-            string: "http://127.0.0.1:3000/configurations/current_user_tabs"
-        )!
+        let url = baseURL.appending(path: "configurations/current_user_tabs")
 
         let (data, _) = try await URLSession.shared.data(
             from: url

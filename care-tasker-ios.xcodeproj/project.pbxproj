@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		777CBE74305E159A00CCADCD /* HotwireNative in Frameworks */ = {isa = PBXBuildFile; productRef = 777CBE73305E159A00CCADCD /* HotwireNative */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		777CBE5A305E12DB00CCADCD /* care-taskerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "care-taskerApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,6 +39,7 @@
 		777CBE57305E12DB00CCADCD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				777CBE74305E159A00CCADCD /* HotwireNative in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -73,6 +78,9 @@
 				777CBE5C305E12DB00CCADCD /* care-taskerApp */,
 			);
 			name = "care-taskerApp";
+			packageProductDependencies = (
+				777CBE73305E159A00CCADCD /* HotwireNative */,
+			);
 			productName = "care-taskerApp";
 			productReference = 777CBE5A305E12DB00CCADCD /* care-taskerApp.app */;
 			productType = "com.apple.product-type.application";
@@ -101,6 +109,9 @@
 			);
 			mainGroup = 777CBE51305E12DB00CCADCD;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				777CBE72305E159A00CCADCD /* XCRemoteSwiftPackageReference "hotwire-native-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 777CBE5B305E12DB00CCADCD /* Products */;
 			projectDirPath = "";
@@ -329,6 +340,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		777CBE72305E159A00CCADCD /* XCRemoteSwiftPackageReference "hotwire-native-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hotwired/hotwire-native-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		777CBE73305E159A00CCADCD /* HotwireNative */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 777CBE72305E159A00CCADCD /* XCRemoteSwiftPackageReference "hotwire-native-ios" */;
+			productName = HotwireNative;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 777CBE52305E12DB00CCADCD /* Project object */;
 	validationLevel = 1;
