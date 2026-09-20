@@ -1,6 +1,6 @@
 //
 //  TabConfiguration.swift
-//  care-taskerApp
+//  care-tasker-ios
 //
 //  Created by Michael Forbes on 19/9/2026.
 //
@@ -10,7 +10,7 @@ struct TabConfiguration: Codable {
     let mobile_title: String
     let title: String
     let url: String
-    let ios_url: String
+    let mobile_url: String
     let fi_icon: String
     let ios_icon: String
     let android_icon: String

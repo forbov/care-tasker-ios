@@ -11,26 +11,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		777CBE5A305E12DB00CCADCD /* care-taskerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "care-taskerApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		777CBE5A305E12DB00CCADCD /* care-tasker-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "care-tasker-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		777CBE6C305E12DB00CCADCD /* Exceptions for "care-taskerApp" folder in "care-taskerApp" target */ = {
+		777CBE6C305E12DB00CCADCD /* Exceptions for "care-tasker-ios" folder in "care-tasker-ios" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 777CBE59305E12DB00CCADCD /* care-taskerApp */;
+			target = 777CBE59305E12DB00CCADCD /* care-tasker-ios */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		777CBE5C305E12DB00CCADCD /* care-taskerApp */ = {
+		777CBE5C305E12DB00CCADCD /* care-tasker-ios */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				777CBE6C305E12DB00CCADCD /* Exceptions for "care-taskerApp" folder in "care-taskerApp" target */,
+				777CBE6C305E12DB00CCADCD /* Exceptions for "care-tasker-ios" folder in "care-tasker-ios" target */,
 			);
-			path = "care-taskerApp";
+			path = "care-tasker-ios";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -48,7 +48,7 @@
 		777CBE51305E12DB00CCADCD = {
 			isa = PBXGroup;
 			children = (
-				777CBE5C305E12DB00CCADCD /* care-taskerApp */,
+				777CBE5C305E12DB00CCADCD /* care-tasker-ios */,
 				777CBE5B305E12DB00CCADCD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,7 +56,7 @@
 		777CBE5B305E12DB00CCADCD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				777CBE5A305E12DB00CCADCD /* care-taskerApp.app */,
+				777CBE5A305E12DB00CCADCD /* care-tasker-ios.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,9 +64,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		777CBE59305E12DB00CCADCD /* care-taskerApp */ = {
+		777CBE59305E12DB00CCADCD /* care-tasker-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 777CBE6D305E12DB00CCADCD /* Build configuration list for PBXNativeTarget "care-taskerApp" */;
+			buildConfigurationList = 777CBE6D305E12DB00CCADCD /* Build configuration list for PBXNativeTarget "care-tasker-ios" */;
 			buildPhases = (
 				777CBE56305E12DB00CCADCD /* Sources */,
 				777CBE57305E12DB00CCADCD /* Frameworks */,
@@ -75,14 +75,14 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				777CBE5C305E12DB00CCADCD /* care-taskerApp */,
+				777CBE5C305E12DB00CCADCD /* care-tasker-ios */,
 			);
-			name = "care-taskerApp";
+			name = "care-tasker-ios";
 			packageProductDependencies = (
 				777CBE73305E159A00CCADCD /* HotwireNative */,
 			);
-			productName = "care-taskerApp";
-			productReference = 777CBE5A305E12DB00CCADCD /* care-taskerApp.app */;
+			productName = "care-tasker-ios";
+			productReference = 777CBE5A305E12DB00CCADCD /* care-tasker-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 777CBE55305E12DB00CCADCD /* Build configuration list for PBXProject "care-taskerApp" */;
+			buildConfigurationList = 777CBE55305E12DB00CCADCD /* Build configuration list for PBXProject "care-tasker-ios" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -117,7 +117,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				777CBE59305E12DB00CCADCD /* care-taskerApp */,
+				777CBE59305E12DB00CCADCD /* care-tasker-ios */,
 			);
 		};
 /* End PBXProject section */
@@ -139,7 +139,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		777CBE6E305E12DB00CCADCD /* Debug configuration for PBXNativeTarget "care-taskerApp" */ = {
+		777CBE6E305E12DB00CCADCD /* Debug configuration for PBXNativeTarget "care-tasker-ios" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -147,7 +147,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "care-taskerApp/Info.plist";
+				INFOPLIST_FILE = "care-tasker-ios/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -158,7 +158,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.com.computability.care-taskerApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "au.com.computability.care-tasker-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -170,7 +170,7 @@
 			};
 			name = Debug;
 		};
-		777CBE6F305E12DB00CCADCD /* Release configuration for PBXNativeTarget "care-taskerApp" */ = {
+		777CBE6F305E12DB00CCADCD /* Release configuration for PBXNativeTarget "care-tasker-ios" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -178,7 +178,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "care-taskerApp/Info.plist";
+				INFOPLIST_FILE = "care-tasker-ios/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -189,7 +189,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.com.computability.care-taskerApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "au.com.computability.care-tasker-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -201,7 +201,7 @@
 			};
 			name = Release;
 		};
-		777CBE70305E12DB00CCADCD /* Debug configuration for PBXProject "care-taskerApp" */ = {
+		777CBE70305E12DB00CCADCD /* Debug configuration for PBXProject "care-tasker-ios" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,7 +264,7 @@
 			};
 			name = Debug;
 		};
-		777CBE71305E12DB00CCADCD /* Release configuration for PBXProject "care-taskerApp" */ = {
+		777CBE71305E12DB00CCADCD /* Release configuration for PBXProject "care-tasker-ios" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -323,19 +323,19 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		777CBE55305E12DB00CCADCD /* Build configuration list for PBXProject "care-taskerApp" */ = {
+		777CBE55305E12DB00CCADCD /* Build configuration list for PBXProject "care-tasker-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				777CBE70305E12DB00CCADCD /* Debug configuration for PBXProject "care-taskerApp" */,
-				777CBE71305E12DB00CCADCD /* Release configuration for PBXProject "care-taskerApp" */,
+				777CBE70305E12DB00CCADCD /* Debug configuration for PBXProject "care-tasker-ios" */,
+				777CBE71305E12DB00CCADCD /* Release configuration for PBXProject "care-tasker-ios" */,
 			);
 			defaultConfigurationName = Release;
 		};
-		777CBE6D305E12DB00CCADCD /* Build configuration list for PBXNativeTarget "care-taskerApp" */ = {
+		777CBE6D305E12DB00CCADCD /* Build configuration list for PBXNativeTarget "care-tasker-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				777CBE6E305E12DB00CCADCD /* Debug configuration for PBXNativeTarget "care-taskerApp" */,
-				777CBE6F305E12DB00CCADCD /* Release configuration for PBXNativeTarget "care-taskerApp" */,
+				777CBE6E305E12DB00CCADCD /* Debug configuration for PBXNativeTarget "care-tasker-ios" */,
+				777CBE6F305E12DB00CCADCD /* Release configuration for PBXNativeTarget "care-tasker-ios" */,
 			);
 			defaultConfigurationName = Release;
 		};

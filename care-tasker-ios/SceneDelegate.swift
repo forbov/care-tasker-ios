@@ -1,3 +1,9 @@
+//
+//  SceneDelegate.swift
+//  care-tasker-ios
+//
+//  Created by Michael Forbes on 19/9/2026.
+//
 import UIKit
 import HotwireNative
 

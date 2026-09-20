@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  care-taskerApp
+//  care-tasker-ios
 //
 //  Created by Michael Forbes on 19/9/2026.
 //
