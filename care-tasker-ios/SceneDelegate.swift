@@ -2,8 +2,7 @@
 //  SceneDelegate.swift
 //  care-tasker-ios
 //
-//  Created by Michael Forbes on 19/9/2026.
-//
+
 import UIKit
 import HotwireNative
 
@@ -13,14 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    private var tabsLoaded = false
+    private var loginNavigator: Navigator!
 
-    private lazy var navigator = Navigator(
-        configuration: .init(
-            name: "main",
-            startLocation: baseURL
-        )
-    )
+    private var nativeTabsVisible = false
 
     func scene(
         _ scene: UIScene,
@@ -33,56 +27,192 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         let window = UIWindow(windowScene: windowScene)
+
         self.window = window
 
-        window.rootViewController = navigator.rootViewController
+        showLoginScreen()
 
         window.makeKeyAndVisible()
+    }
 
-        navigator.start()
+    // MARK: Login Screen
 
-        //
-        // Temporary bootstrap.
-        //
-        Task {
-            await waitForAuthenticatedSession()
+    @MainActor
+    private func showLoginScreen() {
+
+        loginNavigator = Navigator(
+            configuration: .init(
+                name: "main",
+                startLocation: baseURL
+            )
+        )
+
+        window?.rootViewController =
+            loginNavigator.rootViewController
+
+        loginNavigator.start()
+    }
+
+    // MARK: First Login
+
+    @MainActor
+    private func showTabBar(
+        tabs: [TabConfiguration]
+    ) {
+
+        let controller =
+            RootTabBarController()
+
+        controller.configure(with: tabs)
+
+        window?.rootViewController =
+            controller
+    }
+
+    // MARK: Tab Refresh
+
+    @MainActor
+    private func refreshTabBar(
+        tabs: [TabConfiguration]
+    ) {
+
+        guard let controller =
+            window?.rootViewController
+                as? RootTabBarController else {
+
+            showTabBar(tabs: tabs)
+            return
+        }
+
+        controller.rebuildTabs(with: tabs)
+    }
+
+    private func loadTabs() async {
+
+        do {
+
+            let tabs =
+                try await ConfigurationService()
+                    .loadTabs()
+
+            await MainActor.run {
+
+                let controller =
+                    RootTabBarController()
+
+                controller.configure(with: tabs)
+
+                self.window?.rootViewController =
+                    controller
+            }
+
+        } catch {
+
+            print(error)
         }
     }
 
-    private func waitForAuthenticatedSession() async {
-
-        while !tabsLoaded {
-
-            do {
-
-                let tabs = try await ConfigurationService()
-                    .loadTabs()
-
-                tabsLoaded = true
-
-                await MainActor.run {
-
-                    let tabBarController =
-                        RootTabBarController()
-
-                    tabBarController.configure(
-                        with: tabs
-                    )
-
-                    self.window?.rootViewController =
-                        tabBarController
+    private func refreshTabs(returnTo path: String?) async {
+        do {
+            let tabs =
+            try await ConfigurationService()
+                .loadTabs()
+            
+            await MainActor.run {
+                
+                let selectedIndex =
+                (window?.rootViewController
+                 as? UITabBarController)?
+                    .selectedIndex ?? 0
+                
+                let controller =
+                RootTabBarController()
+                
+                controller.configure(with: tabs)
+                
+                controller.selectedIndex =
+                min(
+                    selectedIndex,
+                    tabs.count - 1
+                )
+                
+                window?.rootViewController =
+                controller
+            }
+            if let path {
+                
+                let url = baseURL.appending(path: path)
+                
+                if let tabController =
+                    window?.rootViewController as? RootTabBarController {
+                    
+                    let currentIndex = tabController.selectedIndex
+                    
+                    if currentIndex < tabController.navigators.count {
+                        
+                        let navigator =
+                        tabController.navigators[currentIndex]
+                        
+                        navigator.route(url)
+                    }
                 }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    // MARK: Custom URLs
 
-            } catch {
+    func scene(
+        _ scene: UIScene,
+        openURLContexts URLContexts: Set<UIOpenURLContext>
+    ) {
 
-                //
-                // User not authenticated yet.
-                //
+        guard let url =
+            URLContexts.first?.url else {
+            return
+        }
+
+        guard url.scheme == "caretasker" else {
+            return
+        }
+
+        switch url.host {
+
+        case "login":
+
+            Task {
+                await loadTabs()
+            }
+            nativeTabsVisible = true
+
+        case "refresh":
+            let components = URLComponents(
+                    url: url,
+                    resolvingAgainstBaseURL: false
+                )
+            let currentURL =
+                components?
+                    .queryItems?
+                    .first(where: { $0.name == "url" })?
+                    .value
+            Task {
+                await refreshTabs(
+                    returnTo: currentURL
+                )
             }
 
-            try? await Task.sleep(
-                for: .seconds(2)
-            )
+        case "logout":
+            guard nativeTabsVisible else {
+                return
+            }
+            Task { @MainActor in
+                showLoginScreen()
+            }
+            nativeTabsVisible = false
+
+        default:
+            break
         }
     }
 }
