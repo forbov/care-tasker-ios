@@ -14,7 +14,9 @@ class RootTabBarController: UITabBarController {
 
         navigators.removeAll()
 
-        let controllers = tabs.map { tab -> UIViewController in
+        let mobileTabs = tabs.filter { $0.mobile_link }
+
+        let controllers = mobileTabs.map { tab -> UIViewController in
 
             let navigator = Navigator(
                 configuration: .init(
@@ -45,7 +47,9 @@ class RootTabBarController: UITabBarController {
 
         let currentIndex = selectedIndex
 
-        let controllers = tabs.map { tab -> UIViewController in
+        let mobileTabs = tabs.filter { $0.mobile_link }
+
+        let controllers = mobileTabs.map { tab -> UIViewController in
 
             let navigator = Navigator(
                 configuration: .init(
@@ -53,6 +57,7 @@ class RootTabBarController: UITabBarController {
                     startLocation: URL(string: tab.mobile_url)!
                 )
             )
+
             let controller = navigator.rootViewController
 
             controller.tabBarItem = UITabBarItem(
@@ -60,10 +65,12 @@ class RootTabBarController: UITabBarController {
                 image: UIImage(systemName: tab.ios_icon),
                 selectedImage: nil
             )
+
             navigator.start()
 
             return controller
         }
+
         viewControllers = controllers
 
         if currentIndex < controllers.count {

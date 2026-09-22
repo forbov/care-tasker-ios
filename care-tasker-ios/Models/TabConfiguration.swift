@@ -15,5 +15,6 @@ struct TabConfiguration: Codable {
     let ios_icon: String
     let android_icon: String
     let web_link: Bool
+    let mobile_link: Bool
     let active: Bool
 }
